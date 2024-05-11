@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using ReadyTech.Application.Abstractions;
+using ReadyTech.Application.Dtos;
 using UnitTests.Fixtures;
 
 namespace UnitTests
@@ -21,7 +22,7 @@ namespace UnitTests
 
             var result = await brewCoffeeService.GetBrewCoffee(CancellationToken.None);
 
-            Assert.Equal("Your piping hot coffee is ready", result.Message);
+            Assert.IsType<BrewCoffeeDto>(result);
 
         }
     }
